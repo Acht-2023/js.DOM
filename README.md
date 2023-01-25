@@ -1,6 +1,6 @@
 1 кт
+   
     <script>
-
         function Y1(arg1, yes, no) {
             if (arg1 < 12) yes(arg1)
             else no(arg1)
