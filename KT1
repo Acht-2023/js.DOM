@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+
+<body>
+<script>
+const arr = Array.from({ length: 30 }, () => Math.floor(Math.random() * 100));
+
+const table = document.createElement('table');
+let count = 0;
+for (let i = 0; i < 5; i++) {
+const tr = document.createElement('tr');
+for (let j = 0; j < 6; j++) {
+const td = document.createElement('td');
+td.textContent = arr[count];
+if (arr[count] >= 50) {
+td.style.backgroundColor = 'orange';
+}
+tr.appendChild(td);
+count++;
+}
+table.appendChild(tr);
+}
+
+document.body.appendChild(table);
+</script>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="addNumber()">Добавить число</button>
+    <script>
+        const table = document.createElement('table');
+        let count = 0;
+        for (let i = 0; i < 5; i++) {
+            const tr = document.createElement('tr');
+            for (let j = 0; j < 6; j++) {
+                const td = document.createElement('td');
+                td.textContent = '';
+                tr.appendChild(td);
+                count++;
+            }
+            table.appendChild(tr);
+        }
+
+        document.body.appendChild(table);
+
+        function addNumber() {
+            const number = Math.floor(Math.random() * 100);
+
+            const tds = table.querySelectorAll('td');
+            let emptyCell;
+            tds.forEach(td => {
+                if (td.textContent === '') {
+                    emptyCell = td;
+                    return;
+                }
+            });
+
+            if (!emptyCell) {
+                alert('Все ячейки заполнены');
+                return;
+            }
+
+            emptyCell.textContent = number;
+            if (number >= 50) {
+                emptyCell.style.backgroundColor = 'orange';
+            }
+        }
+    </script>
+</body>
+
+</html>
